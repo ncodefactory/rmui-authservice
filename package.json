@@ -4,6 +4,8 @@
   "license": "MIT",
   "repository": "ncodefactory/rmui-authservice",
   "scripts": {
+    "compile": "babel src --out-dir .compiled --source-maps",
+    "compile:watch": "babel src --out-dir .compiled --source-maps --watch",
     "start": "node --require @babel/register src/app.js",
     "test": "mocha --reporter mochawesome --reporter-options reportDir=test-results src/**/*spec.js --require @babel/register --recursive",
     "test:watch": "npm run test -- --watch"
