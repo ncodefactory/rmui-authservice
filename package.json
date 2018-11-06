@@ -1,0 +1,46 @@
+{
+  "name": "@ncodefactory/rmui-authservice",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "ncodefactory/rmui-authservice",
+  "scripts": {
+    "start": "node --require @babel/register src/app.js",
+    "test": "mocha --reporter mochawesome --reporter-options reportDir=test-results src/**/*spec.js --require @babel/register --recursive",
+    "test:watch": "npm run test -- --watch"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread"
+    ]
+  },
+  "dependencies": {
+    "ajv": "^5.5.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "mocha": "^5.2.0",
+    "mochawesome": "^3.1.0",
+    "prettier-eslint": "^8.8.2"
+  }
+}
