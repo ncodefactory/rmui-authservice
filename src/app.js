@@ -12,7 +12,7 @@ application.use(morgan('combined'));
 application.use(cors());
 application.use(bodyParser.json({ type: '*/*' }));
 router(application);
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3001;
 const server = http.createServer(application);
 server.listen(port);
 console.log(`rmui-uthservice listening on: ${port}`); //eslint-disable-line
