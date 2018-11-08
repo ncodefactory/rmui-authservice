@@ -26,7 +26,20 @@
     ]
   },
   "dependencies": {
-    "ajv": "^5.5.2"
+    "@ncodefactory/rmui-mtns": "^0.1.1",
+    "@ncodefactory/rmui-passwd": "^5.2.0",
+    "ajv": "^5.5.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jwt-simple": "^0.5.5",
+    "morgan": "^1.9.1",
+    "oracledb": "^3.0.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
