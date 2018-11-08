@@ -1,17 +1,5 @@
-import fs from 'fs';
-import { mtns as mtnses } from '@ncodefactory/rmui-mtns';
 import forUser from './token';
-
-let mtnsItems;
-((maatTnsFilePath) => {
-  fs.readFile(maatTnsFilePath, 'utf-8', (err, contents) => {
-    if (err) {
-      throw err;
-    }
-
-    mtnsItems = mtnses(contents);
-  });
-})('./src/config/maat.tns');
+import dbcfg from './dbcfg';
 
 const signin = (req, res) => {
   const { login, mtns } = req.user;
@@ -19,7 +7,8 @@ const signin = (req, res) => {
 };
 
 const fetchMtnses = (req, res) => {
-  res.json(mtnsItems.map(mtnsItem => mtnsItem.name));
+  const mtnses = Object.keys(dbcfg).sort();
+  res.json(mtnses);
 };
 
 export { signin, fetchMtnses };

@@ -2,11 +2,10 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 import { encoder } from '@ncodefactory/rmui-passwd';
-import { dbcfg, secrets } from './config/settings';
 
 const localStrategyOptions = { usernameField: 'login' };
 const localStrategy = new LocalStrategy(localStrategyOptions, (login, password, done) => {
-  const encoded = encoder(secrets.encoder)(password);
+  const encoded = encoder(process.env.ENCODER_SECRET)(password);
   if (encoded === '') {
     return done(null, { login: 'demo' });
   }
@@ -16,7 +15,7 @@ const localStrategy = new LocalStrategy(localStrategyOptions, (login, password, 
 
 const jwtStrategyOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: dbcfg.secret,
+  secretOrKey: process.env.TOKEN_SECRET,
 };
 
 const jwtStrategy = new JwtStrategy(jwtStrategyOptions, (payload, done) => {
