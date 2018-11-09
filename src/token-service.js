@@ -1,11 +1,9 @@
 import { uuid4 } from 'fast-uuid';
 import jwt from 'jsonwebtoken';
-import expressjwt from 'express-jwt';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const jwtCheck = expressjwt({ secret: process.env.TOKEN_SECRET });
 const jwtSign = (sub, login, mtns) => jwt.sign(
   {
     sub,

@@ -22,8 +22,7 @@ const executeQuery = (mtns) => {
 
       return { rows: result.rows };
     } catch (err) {
-      console.error(err); // eslint-disable-line no-console
-      return { err };
+      throw err;
     } finally {
       if (connection) {
         try {

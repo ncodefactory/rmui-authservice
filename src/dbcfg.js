@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { mtns, tnsn } from '@ncodefactory/rmui-mtns';
+import { decoder } from '@ncodefactory/rmui-passwd';
 
 let config = {};
 ((cfgDirectoryName) => {
@@ -17,7 +18,11 @@ let config = {};
       console.error(`tnsname for mtns ${obj.name} not found`); //eslint-disable-line
     }
 
-    mapped[obj.name] = { user: obj.user, password: obj.passwd, connectString: connStrItem.connStr };
+    mapped[obj.name] = {
+      user: obj.user,
+      password: decoder(process.env.ENCODER_SECRET)(obj.passwd),
+      connectString: connStrItem.connStr,
+    };
     return mapped;
   }, {});
 })(process.env.MTNS_AND_TNS_FILES_DIRECTORY);

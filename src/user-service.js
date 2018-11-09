@@ -2,15 +2,15 @@ import { executeQuery } from './db-service';
 
 const getByIdAndPassword = async (mtns, id, passwd) => {
   const result = await executeQuery(mtns)(
-    'select id from uzytkownicy where id=:id and haslo=:passwd',
+    'select id, p_maat.SprawdzHaslo(:passwd,haslo) is_valid from uzytkownicy where id=:id',
     {
       id,
       passwd,
     },
   );
 
-  if (result) {
-    return { id: result[0].ID };
+  if (result.rows[0] && result.rows[0].IS_VALID === 'TRUE') {
+    return { id: result.rows[0].ID };
   }
 
   return null;
