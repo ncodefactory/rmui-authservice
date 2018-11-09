@@ -15,4 +15,4 @@ router(application);
 const port = process.env.PORT || 3001;
 const server = http.createServer(application);
 server.listen(port);
-console.log(`rmui-uthservice listening on: ${port}`); //eslint-disable-line
+console.log(`rmui-authservice listening on: ${port}`); //eslint-disable-line
