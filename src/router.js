@@ -1,8 +1,6 @@
-import expressjwt from 'express-jwt';
-import { signin, fetchMtnses } from './authController';
-import { asset, assetSecret } from './assetController';
-
-const jwtCheck = expressjwt({ secret: process.env.TOKEN_SECRET });
+import { jwtCheck } from './token-service';
+import { signin, fetchMtnses } from './auth-controller';
+import { asset, assetSecret } from './asset-controller';
 
 const router = (app) => {
   app.get('/mtnses', fetchMtnses);

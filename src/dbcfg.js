@@ -1,9 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import dotenv from 'dotenv';
 import { mtns, tnsn } from '@ncodefactory/rmui-mtns';
-
-dotenv.config();
 
 let config = {};
 ((cfgDirectoryName) => {
@@ -20,7 +17,7 @@ let config = {};
       console.error(`tnsname for mtns ${obj.name} not found`); //eslint-disable-line
     }
 
-    mapped[obj.name] = { user: obj.user, passwd: obj.passwd, connStr: connStrItem.connStr };
+    mapped[obj.name] = { user: obj.user, password: obj.passwd, connectString: connStrItem.connStr };
     return mapped;
   }, {});
 })(process.env.MTNS_AND_TNS_FILES_DIRECTORY);
