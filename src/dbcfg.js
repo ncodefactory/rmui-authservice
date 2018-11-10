@@ -2,6 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import { mtns, tnsn } from '@ncodefactory/rmui-mtns';
 import { decoder } from '@ncodefactory/rmui-passwd';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 let config = {};
 ((cfgDirectoryName) => {

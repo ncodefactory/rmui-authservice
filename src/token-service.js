@@ -1,8 +1,5 @@
 import { uuid4 } from 'fast-uuid';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const jwtSign = (sub, login, mtns) => jwt.sign(
   {
@@ -15,4 +12,4 @@ const jwtSign = (sub, login, mtns) => jwt.sign(
   { expiresIn: '3 hours' },
 );
 
-export { jwtCheck, jwtSign };
+export default jwtSign;

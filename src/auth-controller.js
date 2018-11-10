@@ -1,5 +1,5 @@
 import dbcfg from './dbcfg';
-import { jwtSign } from './token-service';
+import jwtSign from './token-service';
 import getByMtnsLoginAndPasswd from './user-service';
 
 const signin = async (req, res) => {
